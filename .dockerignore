@@ -1,0 +1,26 @@
+# 版本控制系统
+.git
+.gitignore
+.gitattributes
+
+# 依赖目录 (极其重要：防止本地 node_modules 拷入镜像)
+node_modules
+npm-debug.log*
+yarn-error.log*
+.npmrc
+
+# 文档与说明
+README.md
+README-ZH.md
+
+# 临时文件与缓存
+.DS_Store
+Thumbs.db
+.cache/
+.npm/
+
+libs/ffmpeg/
+libs/ffprobe/
+
+.vscode/
+.idea/
