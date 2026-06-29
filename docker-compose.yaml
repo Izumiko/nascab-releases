@@ -1,0 +1,27 @@
+services:
+  nascabos:
+    # image: ypptec/nascabos
+    image: izumiko/nascabos
+    container_name: nascabos
+    restart: unless-stopped
+
+    ports:
+      - "8888:6789"   # HTTP API 端口
+      - "10080:10080" # WebDAV (HTTP)
+      # - "8889:6799"   # HTTPS API 端口
+      # - "10443:10443" # WebDAV (HTTPS)
+      # - "8821:2121"   # FTP 分享
+      # - "8822:2022"   # SFTP 分享
+
+    volumes:
+      # 修改左侧路径，使其指向宿主机上需要由 NasCabOS 访问的数据目录
+      - /myData:/myData
+
+      # NasCabOS 的数据库、图片缓存和管理员账户信息等持久化数据
+      - /nascabData:/nascabos_data
+
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
